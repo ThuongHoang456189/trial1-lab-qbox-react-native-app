@@ -4,6 +4,7 @@ import {moderateScale, verticalScale} from "react-native-size-matters";
 import PlatformSafeView from "../../components/PlatformSafeView";
 import {useNavigation} from "@react-navigation/native";
 
+import Animated from "react-native-reanimated";
 
 const { height, width } = Dimensions.get("window");
 
@@ -30,6 +31,9 @@ const QuizLoadingScreen = () => {
                     </View>
                 </View>
 
+                <Animated.View>
+
+                </Animated.View>
             </View>
         </SafeAreaView>
     );
