@@ -16,7 +16,7 @@ const MentorIdentificationBadge = ({navigator}) => {
                     <View className="grow"></View>
                     <BasicButton
                         onPress={() => {
-                            navigator.navigate("QuizLoadingScreen");
+                            navigator.navigate("QuizStartingScreen");
                         }}
                         className="mb-2" title="Mentor"
                         textStyle={{fontSize: 14}}

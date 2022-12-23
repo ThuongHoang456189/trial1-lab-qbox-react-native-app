@@ -13,10 +13,10 @@ import TitledIconButton from "../components/TitledIconButton";
 import MenteeMentorRelationshipStatusCard from "../components/MenteeMentorRelationshipStatusCard";
 
 const HomeScreen = () => {
-    const navigation = useNavigation();
+    const navigator = useNavigation();
 
     useLayoutEffect(() => {
-        navigation.setOptions({
+        navigator.setOptions({
             headerShown: false
         })
     }, []);
@@ -49,7 +49,7 @@ const HomeScreen = () => {
                 {/*Customized User Dashboard Top Tabs*/}
                 <CustomizedUserDashboardTopTabs/>
                 <MenteeProfileSettings/>
-                <MentorIdentificationBadge navigator={navigation}/>
+                <MentorIdentificationBadge navigator={navigator}/>
                 <BasicCard>
                     <TitledIconButton title="Goals" name="checkmark-circle" size={35} color="purple"/>
                     <TitledIconButton title="Milestones" name="list" size={35} color="purple"/>

@@ -4,6 +4,7 @@ import { TailwindProvider } from "tailwindcss-react-native";
 import { NavigationContainer} from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import HomeScreen from "./screens/HomeScreen";
+import QuizStartingScreen from "./screens/quiz-app/QuizStartingScreen";
 import QuizLoadingScreen from "./screens/quiz-app/QuizLoadingScreen";
 
 const Stack = createNativeStackNavigator();
@@ -14,6 +15,7 @@ export default function App() {
           <TailwindProvider>
               <Stack.Navigator>
                   <Stack.Screen name="Home" component={HomeScreen}/>
+                  <Stack.Screen name="QuizStartingScreen" component={QuizStartingScreen}/>
                   <Stack.Screen name="QuizLoadingScreen" component={QuizLoadingScreen}/>
               </Stack.Navigator>
           </TailwindProvider>
