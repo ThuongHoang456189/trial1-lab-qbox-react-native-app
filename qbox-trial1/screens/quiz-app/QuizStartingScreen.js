@@ -94,7 +94,7 @@ const QuizStartingScreen = () => {
                     <Text className="flex-none text-blue-900 pb-5 text-center" style={{fontSize: 18}}>Your Japanese is so amazing!</Text>
                     <BasicButton
                         onPress={() => {
-                            navigator.navigate("QuizLoadingScreen");
+                            navigator.navigate("QuizScreen");
                         }}
                         title="START QUIZ" textStyle={{fontSize: 20, fontWeight: 'bold', color: '#1e3a8a'}}
                         style={{backgroundColor: 'white', paddingVertical: 20, paddingHorizontal: 50, borderRadius: 50}}/>
