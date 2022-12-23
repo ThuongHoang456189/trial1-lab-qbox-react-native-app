@@ -10,8 +10,8 @@ const MenteeMentorRelationshipStatusCard = (props) => {
                 <Ionicons name={props.icon} size={45} color="purple"/>
             </View>
             <View className="grow flex-col justify-between pl-2">
-                <Text className="flex-none font-bold text-purple-900" style={{fontSize: 18}}>{props.content}</Text>
-                <Text className="flex-none font-bold text-blue-500" style={{fontSize: 18}}>{props.title}</Text>
+                <Text className="flex-none font-bold text-purple-900" style={{fontSize: 16}}>{props.content}</Text>
+                <Text className="flex-none font-bold text-blue-500" style={{fontSize: 16}}>{props.title}</Text>
             </View>
         </BasicCard>
     );

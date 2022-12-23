@@ -13,7 +13,7 @@ const TitledIconButton = (props) => {
 
             <View className="flex-row items-center">
                 <View className="grow"/>
-                <Text style={[styles.text, props.text]}>{props.title}</Text>
+                <Text textStyle={[styles.text, props.text]}>{props.title}</Text>
                 <View className="grow"/>
             </View>
         </View>
