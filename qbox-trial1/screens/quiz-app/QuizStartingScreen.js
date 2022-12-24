@@ -7,7 +7,7 @@ import {useNavigation} from "@react-navigation/native";
 import Animated from "react-native-reanimated";
 import BasicButton from "../../components/BasicButton";
 
-const { height, width } = Dimensions.get("window");
+const { height } = Dimensions.get("window");
 
 const QuizStartingScreen = () => {
     const navigator = useNavigation();

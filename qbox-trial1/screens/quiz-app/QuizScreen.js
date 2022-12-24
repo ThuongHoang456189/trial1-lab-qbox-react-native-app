@@ -1,8 +1,8 @@
 import React, {useLayoutEffect} from 'react';
 import {Dimensions, Image, SafeAreaView, Text, View} from "react-native";
-import PlatformSafeView from "../../components/PlatformSafeView";
 import {useNavigation} from "@react-navigation/native";
 import QuizContainer from "../../components/quiz-app/QuizContainer";
+import QuestionSlide from "../../components/quiz-app/QuestionSlide";
 
 const { height } = Dimensions.get("window");
 
@@ -16,7 +16,9 @@ const QuizLoadingScreen = () => {
     }, []);
 
     return (
-        <QuizContainer navigator={navigator}/>
+        <QuizContainer navigator={navigator}>
+            <QuestionSlide/>
+        </QuizContainer>
     );
 };
 
