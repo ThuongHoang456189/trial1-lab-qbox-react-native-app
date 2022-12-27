@@ -9,14 +9,17 @@ export function getRadicalAsset (radical) {
         case "takekanmuri":
             radicalAsset = require(RADICALS_DIRECTORY+"takekanmuri.png")
             break;
-        case "TurtleQuang":
-            radicalAsset = require(RADICALS_DIRECTORY+"TurtleQuang.png")
-            break;
         case "ichi":
             radicalAsset = require(RADICALS_DIRECTORY+"ichi.png");
             break;
         case "dai":
             radicalAsset = require(RADICALS_DIRECTORY+"dai.png");
+            break;
+        case "shinnyou":
+            radicalAsset = require(RADICALS_DIRECTORY+"dai.png");
+            break;
+        case "TurtleQuang":
+            radicalAsset = require(RADICALS_DIRECTORY+"TurtleQuang.png")
             break;
     }
 
