@@ -5,6 +5,11 @@ import {getRadicalAsset} from "../../../utils/kanji-puzzle-app/GetRadicalAsset";
 
 const KanmuriSquareBox = (props) => {
     const edgeWidth = props.edgeWidth;
+
+    const height = edgeWidth==null?props.height:edgeWidth;
+    const width = edgeWidth==null?props.width:edgeWidth;
+
+
     const topRatio = props.topRatio;
     const radical = props.radical;
     const radicalScale = props.radicalScale;
@@ -15,8 +20,8 @@ const KanmuriSquareBox = (props) => {
 
     const image1 = getRadicalAsset(radical);
     const {'resizedHeight':rh1, 'resizedWidth':rw1} = getFittingImageSizes(
-        edgeWidth*topRatio,
-        edgeWidth,
+        height*topRatio,
+        width,
         Image.resolveAssetSource(image1).height,
         Image.resolveAssetSource(image1).width,
         radicalScale==null?1:radicalScale);
@@ -24,28 +29,28 @@ const KanmuriSquareBox = (props) => {
     if(anotherRadical){
         const image2 = getRadicalAsset(anotherRadical)
         const {'resizedHeight':rh2, 'resizedWidth':rw2} = getFittingImageSizes(
-            edgeWidth*(1-topRatio),
-            edgeWidth,
+            height*(1-topRatio),
+            width,
             Image.resolveAssetSource(image2).height,
             Image.resolveAssetSource(image2).width,
             anotherRadicalScale==null?1:anotherRadicalScale);
         return (
-            <View className="bg-green-300 flex-col" height={edgeWidth} width={edgeWidth}>
-                <View height={edgeWidth*topRatio} width={edgeWidth} className="items-center justify-center" style={{backgroundColor: bgRadical}}>
+            <View className="bg-green-300 flex-col" height={height} width={width}>
+                <View height={height*topRatio} width={width} className="items-center justify-center" style={{backgroundColor: bgRadical}}>
                     <Image source={image1} style={{height: rh1, width: rw1}}/>
                 </View>
-                <View height={edgeWidth*(1-topRatio)} style={{backgroundColor: bgAnotherRadical}}>
+                <View height={height*(1-topRatio)} className="items-center justify-center" style={{backgroundColor: bgAnotherRadical}}>
                     <Image source={image2} style={{height: rh2, width: rw2}}/>
                 </View>
             </View>
         );
     }else{
         return (
-            <View className="bg-green-300 flex-col" height={edgeWidth} width={edgeWidth}>
-                <View height={edgeWidth*topRatio} width={edgeWidth} className="items-center justify-center" style={{backgroundColor: bgRadical}}>
+            <View className="bg-green-300 flex-col" height={height} width={width}>
+                <View height={height*topRatio} width={width} className="items-center justify-center" style={{backgroundColor: bgRadical}}>
                     <Image source={image1} style={{height: rh1, width: rw1}}/>
                 </View>
-                <View height={edgeWidth*(1-topRatio)} style={{backgroundColor: bgAnotherRadical}}>
+                <View height={height*(1-topRatio)} style={{backgroundColor: bgAnotherRadical}}>
                     {props.children}
                 </View>
             </View>
