@@ -1,5 +1,5 @@
 import React from 'react';
-import {Image, Text, View} from "react-native";
+import {Image, ImageBackground, Text, View} from "react-native";
 import {getFittingImageSizes} from "../../../utils/GetFittingImageSizes";
 import {getRadicalAsset} from "../../../utils/kanji-puzzle-app/GetRadicalAsset";
 

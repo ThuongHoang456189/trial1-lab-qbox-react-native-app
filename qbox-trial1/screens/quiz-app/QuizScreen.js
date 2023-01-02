@@ -1,11 +1,12 @@
 import React, {useLayoutEffect} from 'react';
-import {Dimensions, Image, SafeAreaView, Text, View} from "react-native";
+import {Dimensions, Image, ImageBackground, SafeAreaView, Text, View} from "react-native";
 import {useNavigation} from "@react-navigation/native";
 import QuizContainer from "../../components/quiz-app/QuizContainer";
 // import QuestionSlide from "../../components/quiz-app/QuestionSlide";
 import KanmuriSquareBox from "../../components/kanji-puzzle-app/radicals/KanmuriSquareBox";
 import {getFittingImageSizes} from "../../utils/GetFittingImageSizes";
 import {ScrollView} from "react-native-gesture-handler";
+import shinnyou from "../../assets/kanji-radicals/shinnyou.png";
 
 
 const { height } = Dimensions.get("window");
@@ -18,6 +19,8 @@ const QuizLoadingScreen = () => {
             headerShown: false
         })
     }, []);
+
+    const bambooSnowBg = require('qbox-trial1/assets/kanji-radicals-background/bamboo_snow.jpg');
 
     const shinnyou = require('qbox-trial1/assets/kanji-radicals/shinnyou.png');
     const edgeWidth = 200;
@@ -64,6 +67,8 @@ const QuizLoadingScreen = () => {
         Image.resolveAssetSource(takumi).height,
         Image.resolveAssetSource(takumi).width,1);
 
+    
+
     return (
         <ScrollView>
             <QuizContainer navigator={navigator}>
@@ -77,13 +82,19 @@ const QuizLoadingScreen = () => {
                 </KanmuriSquareBox>
 
                 <View height={20}>
+                    <Text>Sound</Text>
+                </View>
+
+                <View height={20}>
                     <Text>Nyou</Text>
                 </View>
                 <View height={200} width={200} className="flex-row-reverse bg-blue-300">
+                    <ImageBackground source={bambooSnowBg} imageStyle={{opacity:0.9}}>
+                        <Image source={shinnyou} style={{height: rh, width: rw}}/>
+                    </ImageBackground>
                     <View height={148} width={140} className="absolute bg-yellow-400">
 
                     </View>
-                    <Image source={shinnyou} style={{height: rh, width: rw}}/>
                 </View>
 
                 <View height={20}>
