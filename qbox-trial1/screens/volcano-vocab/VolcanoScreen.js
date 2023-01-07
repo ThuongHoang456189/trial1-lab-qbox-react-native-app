@@ -1,25 +1,52 @@
-import React from 'react';
-import {Text, View} from "react-native";
-import AnimatedLottieView from "lottie-react-native";
+import React, { useRef, useState } from 'react'
+import { StyleSheet, View } from 'react-native'
+import { Canvas, useRender, useFrame } from '@react-three/fiber'
 
-const VolcanoScreen = () => {
-    const animation = React.useRef(null);
+function Box(props) {
+  // This reference will give us direct access to the mesh
+  const mesh = useRef()
 
-    React.useEffect(() => {
-        animation.current.play(0, 200);
-    }, [])
+  // Set up state for the hovered and active state
+  const [hovered, setHover] = useState(false)
+  const [active, setActive] = useState(false)
 
-    return (
-        <View>
-            <AnimatedLottieView
-                ref={animation}
-                style={{width: 100, height: 100, marginLeft: 20}}
-                source={require('qbox-trial1/assets/lottie/temp/coins.json')}
-                autoPlay={false}
-                loop={false}
-            />
-        </View>
-    );
-};
+  // Rotate mesh every frame, this is outside of React without overhead
+  useFrame(() => (mesh.current.rotation.x = mesh.current.rotation.y += 0.01))
 
-export default VolcanoScreen;
+  return (
+    <mesh
+      {...props}
+      ref={mesh}
+      scale={active ? [1.5, 1.5, 1.5] : [1, 1, 1]}
+      onClick={(e) => setActive(!active)}
+      onPointerOver={(e) => setHover(true)}
+      onPointerOut={(e) => setHover(false)}
+    >
+      <boxGeometry attach="geometry" args={[1, 1, 1]} />
+      <meshStandardMaterial
+        attach="material"
+        color={hovered ? 'hotpink' : 'orange'}
+      />
+    </mesh>
+  )
+}
+
+export default function VolcanoScreen() {
+  return (
+    <View style={styles.container}>
+      <Canvas>
+        <ambientLight />
+        <pointLight position={[10, 10, 10]} />
+        <Box position={[-1.2, 0, 0]} />
+        <Box position={[1.2, 0, 0]} />
+      </Canvas>
+    </View>
+  )
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: 'black',
+  },
+})
